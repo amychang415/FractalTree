@@ -5,18 +5,27 @@ public void setup()
 {   
 	size(640,480);    
 	noLoop(); 
+	strokeWeight(4);
+
 } 
 public void draw() 
 {   
 	background(0);   
-	stroke(0,255,0);   
 	line(320,480,320,380);   
 	drawBranches(320,380,100,3*Math.PI/2);
 
-
+	if (keyPressed) 
+	{
+    	if (key == 'a' || key == 'A') 
+    	{
+      	fractionLength=fractionLength+0.1;
+      	System.out.println(fractionLength);
+    	}
+	}
 } 
 public void drawBranches(int x,int y, double branchLength, double angle) 
 {   
+	stroke((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
 	double angle1 = angle - branchAngle;
 	double angle2 = angle + branchAngle;
 	branchLength = branchLength*fractionLength;
